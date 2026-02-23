@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+
+  <link rel="stylesheet" href="style/result.css">
+  <title>Document</title>
+</head>
+<body>
+  <div class="layout">
+    <div class="logo-container">
+      <div class="logo"></div>
+    </div>
+
+    <div class="filters">
+
+      <!-- Distance -->
+      <div class="filter-group">
+        <label>Distance: <span id="rangeValue"></span> km</label>
+        <input type="range" id="range" min="1000" max="30000" step="1000">
+      </div>
+
+      <!-- Category -->
+      <div class="filter-group">
+        <select id="category">
+          <option value="all">All</option>
+          <option value="tourism">Tourist</option>
+          <option value="historic">Historic</option>
+          <option value="temple">Temple</option>
+        </select>
+      </div>
+
+      <!-- Sorting -->
+      <div class="filter-group">
+        <select id="sort">
+          <option value="nearest">Nearest</option>
+          <option value="name">Name (A-Z)</option>
+        </select>
+      </div>
+
+      <button id="applyBtn">Apply Filters</button>
+
+    </div>
+
+    <!-- Places -->
+    <div id="places"></div>
+
+    <!-- Map -->
+    <div class="map-container">
+      <div id="map"></div>
+    </div>
+
+  </div>
+ 
+  
+
+  
+  <script type="module" src="script/result.js"></script>
+</body>
+</html>

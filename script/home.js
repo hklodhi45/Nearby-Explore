@@ -5,6 +5,9 @@ const range = document.getElementById("range");
 const rangeValue = document.getElementById("rangeValue");
 
 // Update slider value
+if(rangeValue.textContent === "") {
+  rangeValue.textContent = range.value/1000;
+}
 range.addEventListener("input", () => {
   rangeValue.textContent = (range.value)/1000;
 });
@@ -17,7 +20,7 @@ searchBtn.addEventListener("click", async () => {
   const coords = await getCoordinates(city);
   if (!coords) return alert("Location not found");
 
-  loadPlaces(coords.lat, coords.lon);
+  goToResult(coords.lat, coords.lon);
 });
 
 // Use my location
@@ -27,7 +30,7 @@ locBtn.addEventListener("click", () => {
       const lat = pos.coords.latitude;
       const lon = pos.coords.longitude;
 
-      loadPlaces(lat, lon);
+      goToResult(lat, lon);
     },
     () => {
       alert("Please allow location access");
@@ -48,7 +51,10 @@ async function getCoordinates(place) {
     lon: data[0].lon
   };
 }
+function goToResult(lat, lon) {
+  const radius = range.value;
 
-function loadPlaces(lat, lon) {
-  console.log("Lat:", lat, "Lon:", lon);
+  window.location.href = `result.html?lat=${lat}&lon=${lon}&radius=${radius}`;
 }
+
+
