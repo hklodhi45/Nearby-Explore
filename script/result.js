@@ -1,13 +1,12 @@
 import * as L from "https://unpkg.com/leaflet@1.9.4/dist/leaflet-src.esm.js";
 
-// 📍 Get data from URL
 const params = new URLSearchParams(window.location.search);
 
 const lat = parseFloat(params.get("lat"));
 const lon = parseFloat(params.get("lon"));
 const radius = parseInt(params.get("radius")) || 3000;
 
-// 🗺️ Create map
+// Create map
 const map = L.map("map").setView([lat, lon], 13);
 
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -16,7 +15,6 @@ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
 
 // user marker
 L.marker([lat, lon]).addTo(map).bindPopup("You are here").openPopup();
-
 
 // Fetch nearby places
 async function getNearbyPlaces(lat, lon, radius, category) {
@@ -70,8 +68,6 @@ function getCategoryImage(tags) {
   return "images/default.png";
 }
 
-
-// 🖼️ Get image (Wikipedia + fallback)
 async function getPlaceImage(name, tags) {
   try {
     const res = await fetch(
@@ -82,12 +78,12 @@ async function getPlaceImage(name, tags) {
 
     const data = await res.json();
 
-    // ✅ Wikipedia image
+    // Wikipedia image
     if (data.thumbnail?.source) {
       return data.thumbnail.source;
     }
 
-    // ✅ fallback
+    // fallback
     return getCategoryImage(tags);
 
   } catch {
@@ -97,7 +93,7 @@ async function getPlaceImage(name, tags) {
 
 
 
-// 🧾 Show places
+// Show places
 async function displayPlaces(places) {
   const container = document.getElementById("places");
   container.innerHTML = "Loading...";

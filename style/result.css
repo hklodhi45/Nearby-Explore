@@ -4,7 +4,6 @@
   --bg-color:#e1ffed;
   --font-family: var(--secondary-font);
 }
-/* 🌍 Page */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -32,7 +31,6 @@ body {
   background-position: center;
 }
 
-/* 🏷️ Heading */
 h1 {
   text-align: center;
   margin: 15px 0;
@@ -41,7 +39,6 @@ h1 {
   grid-area: 2/1/3/3;
 }
 
-/* 🗺️ Map */
 #map {
   height: 100%;
   width: 100%;
@@ -51,7 +48,6 @@ h1 {
   border: 3px solid var(--primary-color);
 }
 
-/* 📦 Places Container */
 #places {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
@@ -61,7 +57,6 @@ h1 {
   grid-area: 1/3/3/4;
 }
 
-/* 🧾 Card */
 .card {
   position: relative;
   background:var(--secondary-color) ;
@@ -80,13 +75,11 @@ h1 {
   width: 100%;
 }
 
-/* ✨ Hover effect */
 .card:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 15px rgba(0,0,0,0.15);
 }
 
-/* 🖼️ Image */
 .card img {
   width: 92%;
   height: 120px;
@@ -95,7 +88,6 @@ h1 {
   margin-top: 7px;
 }
 
-/* 📍 Title */
 .card h3 {
   font-size: 14px;
   padding: 10px;
@@ -133,5 +125,25 @@ select, input[type="range"] {
   border-radius: 6px;
   border: 1px solid #ccc;
   accent-color: var(--primary-color);
+}
+
+.filter-group > select {
+  background-color: var(--primary-color);
+  color: var(--bg-color);
+  border: none;
+  border-radius: 20px;
+  margin-top: 15px;
+  padding: 7px;
+  font-size: 15px;
+  font-family: var(--secondary-font);
+}
+
+#applyBtn{
+  background-color: var(--primary-color);
+  border: none;
+  font-size: 15px;
+  color: var(--bg-color);
+  border-radius: 30px;
+  padding: 5px 15px;
 }
 
