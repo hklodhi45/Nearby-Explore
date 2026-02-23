@@ -124,7 +124,7 @@ async function displayPlaces(places) {
         <img src="${img}" onerror="this.src='images/default.jpg'" />
         <div class="card-content">
           <h3>${name}</h3>
-          <div class="distance center">${distance} km away</div>
+          <div class="distance">${distance} km away</div>
         </div>
       </div>
     `;
